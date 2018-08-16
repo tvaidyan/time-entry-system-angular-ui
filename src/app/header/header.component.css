@@ -1,0 +1,12 @@
+.main-nav {
+    background-color: rgba(19, 53, 86, 0.8);
+  }
+  
+  .name-box {
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+    padding-top: 6px;
+  }
+  

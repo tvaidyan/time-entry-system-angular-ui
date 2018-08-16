@@ -1,0 +1,29 @@
+<mat-card class="sign-in-form">
+  <mat-card-title class="sign-in-header" style="text-align:center;">
+      Sign-In</mat-card-title>
+  <mat-card-subtitle>Please enter your username and password.</mat-card-subtitle>
+  <mat-card-content>
+      <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)" novalidate>
+          <div>
+              <mat-form-field style="width:100%;">
+                  <input matInput placeholder="Email Address" name="email" type="email" required email="true" [(ngModel)]="email"
+                      trim maxlength="255">
+              </mat-form-field>
+          </div>
+          <div>
+              <mat-form-field style="width:100%;">
+                  <input matInput placeholder="Password" name="password" required type="password" [(ngModel)]="password">
+              </mat-form-field>
+          </div>
+          <div *ngIf="formError" class="alert alert-warning text-center">
+              {{ formError }}
+          </div>
+          <div *ngIf="!submitting" style="text-align:center;">
+              <button type="submit" mat-raised-button color="primary">Sign In</button>
+          </div>
+          <div *ngIf="submitting" style="text-align:center;">
+              Signing In...
+          </div>
+      </form>
+  </mat-card-content>
+</mat-card>
