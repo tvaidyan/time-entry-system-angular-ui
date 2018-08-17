@@ -3,25 +3,27 @@ import { Injectable } from "@angular/core";
 import * as moment from "moment";
 import { tap } from "rxjs/operators";
 import { User } from "../models/user";
+import { of } from "rxjs";
 
 @Injectable()
 export class LoginService {
   constructor(private http: HttpClient) {}
 
   public login(creds: any) {
-    return this.http
-      .post(
-        "/api/token",
-        `username=${creds.username}&password=${creds.password}&captcha=${
-          creds.captcha
-        }&grant_type=password`
-      )
-      .pipe(
-        tap((response: any) => {
-          this.setSession(response);
-          return true;
-        })
-      );
+    // return this.http
+    //   .post(
+    //     "/api/token",
+    //     `username=${creds.username}&password=${creds.password}&captcha=${
+    //       creds.captcha
+    //     }&grant_type=password`
+    //   )
+    //   .pipe(
+    //     tap((response: any) => {
+    //       this.setSession(response);
+    //       return true;
+    //     })
+    //   );
+    return of(true);
   }
 
   private setSession(authResult: any) {
@@ -50,7 +52,9 @@ export class LoginService {
   }
 
   public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
+    // return moment().isBefore(this.getExpiration());
+    console.log("fake logged-in");
+    return true;
   }
 
   public getLoggedInUser(): User {

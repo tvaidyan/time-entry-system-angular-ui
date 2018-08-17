@@ -28,6 +28,7 @@ import {
   MatTooltipModule,
   MatProgressBarModule
 } from "@angular/material";
+import { CalendarModule } from 'angular-calendar';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -45,6 +46,9 @@ import { EditClientComponent } from './edit-client/edit-client.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
+import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
+import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +69,9 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
     EditClientComponent,
     ProjectsComponent,
     AddProjectComponent,
-    EditProjectComponent
+    EditProjectComponent,
+    AuthenticatedUserComponent,
+    NavigationMenuComponent
   ],
   imports: [
     CommonModule,
@@ -92,9 +98,11 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
     MatDialogModule,
     MatTableModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    CalendarModule.forRoot(),
   ],
   providers: [
+    AuthGuard,
     LoginService
   ],
   bootstrap: [AppComponent]

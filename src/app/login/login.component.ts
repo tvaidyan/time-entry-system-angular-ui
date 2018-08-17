@@ -36,7 +36,7 @@ export class LoginComponent {
         (success: boolean) => {
           if (success) {
             // navigate to the admin dashboard
-            this.router.navigate(["/admin/authenticated/dashboard"]);
+            this.router.navigate(["/authenticated/calendar"]);
           }
         },
         (err: any) => {
