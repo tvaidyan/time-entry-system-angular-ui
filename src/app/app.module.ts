@@ -33,6 +33,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CalendarComponent } from './calendar/calendar.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { ClientsComponent } from './clients/clients.component';
+import { AddClientComponent } from './add-client/add-client.component';
+import { EditClientComponent } from './edit-client/edit-client.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +53,19 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     BodyComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    CalendarComponent,
+    SettingsComponent,
+    ProfileComponent,
+    EmployeesComponent,
+    AddEmployeeComponent,
+    EditEmployeeComponent,
+    ClientsComponent,
+    AddClientComponent,
+    EditClientComponent,
+    ProjectsComponent,
+    AddProjectComponent,
+    EditProjectComponent
   ],
   imports: [
     CommonModule,
