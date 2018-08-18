@@ -1,21 +1,10 @@
 <nav class="navbar navbar-dark main-nav p-md-2">
   <button mat-button routerLink="/">
     <img src="/assets/time-entry-logo.png" style="size: 20%"></button>
-  <div class="nav justify-content-end" style="display:table-cell;vertical-align: middle;padding-right:1.5em;">
-    <span>Welcome [First Name Goes Here]!</span>
+  <div class="nav justify-content-end" style="display:table-cell;vertical-align: middle;padding-right:1.5em;" *ngIf="loginService.isLoggedIn()">
+    <span>Welcome {{loginService.getLoggedInUser().firstName}}!</span>
     <button mat-icon-button>
       <mat-icon aria-label="Logout button" (click)="logoutUser()" style="color:cadetblue">exit_to_app</mat-icon>
     </button>
   </div>
 </nav>
-<!-- 
-<nav class="navbar navbar-dark main-nav p-md-4">
-  <button mat-button routerLink="/" style="padding:6px;color:white;font-size: 1.5em;">
-    <img src="/assets/ptc_logo_small.png"> Toll Appeals</button>
-  <div class="nav justify-content-end" *ngIf="loginService.isLoggedIn()" style="display:table-cell;vertical-align: middle;padding-right:1.5em;">
-    <span style="color:white;">Welcome {{loginService.getLoggedInUser().firstName}}!</span>
-    <button mat-icon-button (click)="logoutUser()">
-      <mat-icon aria-label="Logout button" style="color:cadetblue">exit_to_app</mat-icon>
-    </button>
-  </div>
-</nav> -->
