@@ -3,32 +3,28 @@ import { Injectable } from "@angular/core";
 import * as moment from "moment";
 import { tap } from "rxjs/operators";
 import { User } from "../models/user";
-import { of } from "rxjs";
 
 @Injectable()
 export class LoginService {
   constructor(private http: HttpClient) {}
 
   public login(creds: any) {
-    // return this.http
-    //   .post(
-    //     "/api/token",
-    //     `username=${creds.username}&password=${creds.password}&captcha=${
-    //       creds.captcha
-    //     }&grant_type=password`
-    //   )
-    //   .pipe(
-    //     tap((response: any) => {
-    //       this.setSession(response);
-    //       return true;
-    //     })
-    //   );
-    return of(true);
+    return this.http
+      .post(
+        "/api/login",
+        creds
+      )
+      .pipe(
+        tap((response: any) => {
+          this.setSession(response);
+          return true;
+        })
+      );
   }
 
   private setSession(authResult: any) {
-    const expiresAt = moment(authResult[".expires"]);
-    localStorage.setItem("id_token", authResult.acccess_token);
+    const expiresAt = moment(authResult["expiration"]);
+    localStorage.setItem("id_token", authResult["token"]);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
     localStorage.setItem("firstName", authResult["firstName"]);
     localStorage.setItem("lastName", authResult["lastName"]);
@@ -37,7 +33,7 @@ export class LoginService {
   }
 
   logout() {
-    return this.http.get("/api/account/logout").pipe(
+    return this.http.post("/api/logout", {}).pipe(
       tap((response: any) => {
         localStorage.removeItem("id_token");
         localStorage.removeItem("expires_at");
@@ -52,9 +48,7 @@ export class LoginService {
   }
 
   public isLoggedIn() {
-    // return moment().isBefore(this.getExpiration());
-    console.log("fake logged-in");
-    return true;
+    return moment().isBefore(this.getExpiration());
   }
 
   public getLoggedInUser(): User {

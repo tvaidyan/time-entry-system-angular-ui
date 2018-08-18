@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
 
   logoutUser() {
-    // this.loginService.logout().subscribe((response: any) => {
-    //   this.router.navigate(["/login"]);
-    // });
+    this.loginService.logout().subscribe((response: any) => {
+      this.router.navigate(["/login"]);
+    });
   }
 
 }
