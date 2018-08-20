@@ -1,3 +1,47 @@
-<p>
-  add-employee works!
-</p>
+<div class="card">
+    <h2 class="card-header">Add New Employee</h2>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form [formGroup]="form" novalidate>
+                    <mat-form-field style="width:100%;">
+                        <input matInput placeholder="First Name" formControlName="firstName" maxlength="50">
+                    </mat-form-field>
+                    <mat-form-field style="width:100%;">
+                        <input matInput placeholder="Last Name" formControlName="lastName" maxlength="50">
+                    </mat-form-field>
+                    <mat-form-field style="width:100%;">
+                        <input matInput placeholder="Email" formControlName="email" type="email" email="true" maxlength="255">
+                        <mat-error *ngIf="form.controls['email'].errors?.emailAddressUnique == false">
+                            This email address already exists in the system.
+                        </mat-error>
+                        <mat-error *ngIf="!form.controls['email'].hasError('required') && form.controls['email'].hasError('email')">
+                            Invalid email address
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="width:100%;">
+                        <input matInput placeholder="Enter password" formControlName="password" type="password">
+                        <mat-error *ngIf="form.controls['password'].hasError('pattern')">
+                            Must be at least 8 characters, have both upper and lowercase, number and a special character.
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="width:100%;">
+                        <mat-select id="department" formControlName="department" placeholder="Department">
+                            <mat-option *ngFor="let department of departments" [value]="department.departmentId">{{department.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div *ngIf="formError" class="alert alert-danger">
+                        <p>{{ formError }}</p>
+                    </div>
+                    <div *ngIf="!submitting">
+                        <button mat-raised-button type="submit" color="primary" (click)="onSubmit()">Save</button>
+                    </div>
+                    <div *ngIf="submitting" style="text-align:center;">
+                        Processing...
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
