@@ -35,7 +35,6 @@ export class LoginComponent {
       this.loginService.login(this.creds).subscribe(
         (success: boolean) => {
           if (success) {
-            // navigate to the admin dashboard
             this.router.navigate(["/authenticated/calendar"]);
           }
         },
