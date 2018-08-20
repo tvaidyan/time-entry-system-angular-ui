@@ -49,6 +49,8 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { DialogsService } from './shared/popup-dialog/dialogs.service';
+import { DialogsModule } from './shared/popup-dialog/dialogs.module';
 
 @NgModule({
   declarations: [
@@ -100,10 +102,12 @@ import { AuthGuard } from './services/auth-guard.service';
     MatMenuModule,
     MatTooltipModule,
     CalendarModule.forRoot(),
+    DialogsModule
   ],
   providers: [
     AuthGuard,
-    LoginService
+    LoginService,
+    DialogsService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,15 @@
+<div class="container-holder">
+    <p class="dialog-title">{{ title }}</p>
+    <p class="dialog-message" [innerHTML]="message | safeHtml"></p>
+    <div class="dialog-buttons-holder">
+        <button type="button" mat-raised-button color="primary" (click)="dialogRef.close(true)">
+            OK
+        </button>
+        <ng-container *ngIf="showCancelButton">
+            &nbsp;
+            <button type="button" mat-raised-button color="primary" (click)="dialogRef.close()">
+                Cancel
+            </button>
+        </ng-container>
+    </div>
+</div>
