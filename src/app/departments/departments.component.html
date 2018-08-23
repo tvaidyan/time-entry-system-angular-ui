@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">
+      <div class="row">
+          <div class="col-md-6">
+              <h2>Departments</h2>
+          </div>
+          <div class="col-md-6">
+              <button class="float-right" mat-icon-button color="primary" routerLink="/authenticated/add-department" matTooltip="Add a new department">
+                  <mat-icon aria-label="Add new employee button">person_add</mat-icon>
+              </button>
+          </div>
+      </div>
+  </div>
+  <div class="card-body">
+      <table class="table table-striped table-bordered">
+          <tr>
+              <th>
+                  Name
+              </th>
+              <th>
+                  Edit
+              </th>
+              <th>
+                  Delete
+              </th>
+          </tr>
+          <tr *ngFor="let department of departments">
+              <td>{{department.name}}</td>
+              <td>
+                  <button mat-icon-button routerLink="/admin/authenticated/edit-department/{{department.departmentId}}" title="edit {{department.name}}">
+                      <mat-icon color="accent">mode_edit</mat-icon>
+                  </button>
+              </td>
+              <td>
+                  <button mat-icon-button (click)="deleteDepartment(department);" title="delete {{department.name}}">
+                      <mat-icon color="warn">delete_forever</mat-icon>
+                  </button>
+              </td>
+          </tr>
+      </table>
+  </div>
+</div>

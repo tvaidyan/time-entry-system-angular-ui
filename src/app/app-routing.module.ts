@@ -11,6 +11,9 @@ import { ClientsComponent } from './clients/clients.component';
 import { AddClientComponent } from './add-client/add-client.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { DepartmentsComponent } from './departments/departments.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { EditDepartmentComponent } from './edit-department/edit-department.component';
 
 const routes: Routes = [
 
@@ -26,6 +29,9 @@ const routes: Routes = [
       { path: "employees", component: EmployeesComponent },
       { path: "add-employee", component: AddEmployeeComponent },
       { path: "edit-employee/:id", component: EditEmployeeComponent },
+      { path: "departments", component: DepartmentsComponent },
+      { path: "add-department", component: AddDepartmentComponent },
+      { path: "edit-department/:id", component: EditDepartmentComponent },
       { path: "clients", component: ClientsComponent },
       {
         path: "add-client",

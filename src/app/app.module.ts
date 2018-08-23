@@ -51,6 +51,9 @@ import { NavigationMenuComponent } from './navigation-menu/navigation-menu.compo
 import { AuthGuard } from './services/auth-guard.service';
 import { DialogsService } from './shared/popup-dialog/dialogs.service';
 import { DialogsModule } from './shared/popup-dialog/dialogs.module';
+import { DepartmentsComponent } from './departments/departments.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { EditDepartmentComponent } from './edit-department/edit-department.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +76,10 @@ import { DialogsModule } from './shared/popup-dialog/dialogs.module';
     AddProjectComponent,
     EditProjectComponent,
     AuthenticatedUserComponent,
-    NavigationMenuComponent
+    NavigationMenuComponent,
+    DepartmentsComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent
   ],
   imports: [
     CommonModule,
