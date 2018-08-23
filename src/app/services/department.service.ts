@@ -12,7 +12,7 @@ export class DepartmentService {
     return this.http.get<Department[]>("/api/departments");
   }
 
-  getById(id: string) {
+  getById(id: number) {
     return this.http.get<Department>("/api/departments/" + id);
   }
 
@@ -24,7 +24,7 @@ export class DepartmentService {
     return this.http.put("/api/departments", department);
   }
 
-  delete(id: string) {
+  delete(id: number) {
     return this.http.delete("/api/departments/" + id);
   }
 }
