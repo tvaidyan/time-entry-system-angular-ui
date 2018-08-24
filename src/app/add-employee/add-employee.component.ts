@@ -8,10 +8,10 @@ import {
 } from "@angular/forms";
 import { map } from "rxjs/operators";
 
-import { Employee } from "../models/Employee"
+import { Employee } from "../models/employee"
 import { EmployeeService } from "../services/employee.service"
 import { DepartmentService } from '../services/department.service';
-import { Department } from '../models/Department';
+import { Department } from '../models/department';
 
 const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
