@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { DepartmentService } from "../services/department.service";
 import { DialogsService } from "../shared/popup-dialog/dialogs.service";
-import { Department } from "../models/Department";
+import { Department } from "../models/department";
 import { Subscription } from "rxjs";
 
 @Component({

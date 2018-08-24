@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
-import { Employee } from "../models/Employee";
+import { Employee } from "../models/employee";
 import { EmployeeService } from "../services/employee.service";
 import { LoginService } from "../services/login.service";
 import { DialogsService } from "../shared/popup-dialog/dialogs.service";
