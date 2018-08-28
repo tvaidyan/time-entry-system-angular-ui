@@ -1,3 +1,27 @@
-<p>
-  add-department works!
-</p>
+<div class="card">
+  <h2 class="card-header">Add New Department</h2>
+  <div class="card-body">
+      <div class="row">
+          <div class="col-md-4">
+              <form [formGroup]="form" novalidate>
+                  <mat-form-field style="width:100%;">
+                      <input matInput placeholder="Name" formControlName="name" maxlength="50">
+                      <mat-error *ngIf="form.controls['name'].hasError('required')">
+                        Name is required
+                      </mat-error>
+                  </mat-form-field>
+                  <div *ngIf="formError" class="alert alert-danger">
+                      <p>{{ formError }}</p>
+                  </div>
+                  <div *ngIf="!submitting">
+                      <button mat-raised-button type="submit" color="primary" (click)="onSubmit()">Save</button>
+                  </div>
+                  <div *ngIf="submitting" style="text-align:center;">
+                      Processing...
+                  </div>
+              </form>
+          </div>
+      </div>
+
+  </div>
+</div>
