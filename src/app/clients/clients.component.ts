@@ -37,7 +37,7 @@ export class ClientsComponent implements OnInit, OnDestroy {
       });
   }
 
-  async deleteclient(client: Client) {
+  async deleteClient(client: Client) {
     this.dialogsService
       .confirm(
         "Delete Client",
