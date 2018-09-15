@@ -26,6 +26,8 @@ export class AddProjectComponent implements OnInit {
     this.addProjectsDropdown(0, null);
   }
 
+  get projectHierarchy() { return <FormArray>this.projectForm.get('projectHierarchy'); }
+
   saveProject() {}
 
   addProjectsDropdown(parentProjectId: number, index: number) {
