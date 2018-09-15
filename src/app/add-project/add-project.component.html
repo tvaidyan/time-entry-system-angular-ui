@@ -1,3 +1,11 @@
-<p>
-  add-project works!
-</p>
+<div>
+  <form [formGroup]="projectForm" (submit)="saveProject()">
+    <div *ngFor="let projectsControl of projectForm.get('projectHierarchy').controls; let i=index">
+        <select id="select{{i}}" placeholder="Projects"
+        (change)="addProjectsDropdown($event.target.value, i)">
+            <option value="-1">Select</option>
+            <option *ngFor="let project of projectsControl.value.projects" [value]="project.projectId">{{project.name}}</option>
+        </select>      
+    </div>
+  </form>
+</div>
