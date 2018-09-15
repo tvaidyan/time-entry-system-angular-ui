@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Project } from "../models/project";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -28,7 +29,7 @@ export class ProjectService {
     return this.http.delete("/api/projects/" + id);
   }
 
-  getChildProjects(parentProjectId: number) {
-    return this.http.get(`/api/projects/${parentProjectId}/child-projects`);
+  getChildProjects(parentProjectId: number): Observable<Project[]> {
+    return this.http.get<Project[]>(`/api/projects/${parentProjectId}/child-projects`);
   }
 }
